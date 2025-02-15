@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>5</fileVersion>
+    <fileChecksum>415576054</fileChecksum>
+    <configuration>
+        <name>Release</name>
+        <outputs>
+            <file>$PROJ_DIR$\..\driver\src\stm32f407_driver_ina226_interface.c</file>
+            <file>$PROJ_DIR$\..\..\..\src\driver_ina226.c</file>
+            <file>$PROJ_DIR$\..\..\..\example\driver_ina226_alert.c</file>
+            <file>$PROJ_DIR$\..\..\..\example\driver_ina226_basic.c</file>
+            <file>$PROJ_DIR$\..\..\..\example\driver_ina226_shot.c</file>
+            <file>$PROJ_DIR$\..\usr\src\stm32f4xx_hal_msp.c</file>
+            <file>$PROJ_DIR$\..\usr\src\main.c</file>
+            <file>$PROJ_DIR$\..\usr\src\getopt.c</file>
+            <file>$PROJ_DIR$\..\..\..\test\driver_ina226_read_test.c</file>
+            <file>$PROJ_DIR$\..\..\..\test\driver_ina226_register_test.c</file>
+            <file>$PROJ_DIR$\..\usr\src\stm32f4xx_it.c</file>
+            <file>$PROJ_DIR$\..\usr\src\shell.c</file>
+            <file>$PROJ_DIR$\..\..\..\test\driver_ina226_alert_test.c</file>
+            <file>$PROJ_DIR$\..\usr\src\system_stm32f4xx.c</file>
+        </outputs>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
+        </forcedrebuild>
+    </configuration>
+</project>

@@ -1,0 +1,25 @@
+var group__ina226__example__driver =
+[
+    [ "INA226_ALERT_DEFAULT_ALERT_LATCH", "group__ina226__example__driver.html#gab8b7562dd7e7bed3e983c6d59927fa9a", null ],
+    [ "INA226_ALERT_DEFAULT_ALERT_POLARITY_NORMAL", "group__ina226__example__driver.html#ga284d3e17acb9c723703d4f3818a45e84", null ],
+    [ "INA226_ALERT_DEFAULT_AVG_MODE", "group__ina226__example__driver.html#ga97634f7cce208abf8e22eb08162ff9fb", null ],
+    [ "INA226_ALERT_DEFAULT_BUS_VOLTAGE_CONVERSION_TIME", "group__ina226__example__driver.html#ga6e8dd9356ac068a3ee8816b98e6e826b", null ],
+    [ "INA226_ALERT_DEFAULT_READY_ALERT_PIN", "group__ina226__example__driver.html#ga6467abc60a0d0e157bf12fd802443f07", null ],
+    [ "INA226_ALERT_DEFAULT_SHUNT_VOLTAGE_CONVERSION_TIME", "group__ina226__example__driver.html#ga48e9f370e26320807a7f934db2c4c53e", null ],
+    [ "INA226_BASIC_DEFAULT_AVG_MODE", "group__ina226__example__driver.html#ga37df0c7fafefe858f7387f17e9fbef79", null ],
+    [ "INA226_BASIC_DEFAULT_BUS_VOLTAGE_CONVERSION_TIME", "group__ina226__example__driver.html#ga0be6c68c988be87b1bbf9e4475452e5a", null ],
+    [ "INA226_BASIC_DEFAULT_SHUNT_VOLTAGE_CONVERSION_TIME", "group__ina226__example__driver.html#ga607443ac595677004c4a58e370a260a5", null ],
+    [ "INA226_SHOT_DEFAULT_AVG_MODE", "group__ina226__example__driver.html#ga5dc3afb1cadad41ac3eb6ac142b37bd5", null ],
+    [ "INA226_SHOT_DEFAULT_BUS_VOLTAGE_CONVERSION_TIME", "group__ina226__example__driver.html#ga6b660aafdeed0444741f6600c3fc5049", null ],
+    [ "INA226_SHOT_DEFAULT_SHUNT_VOLTAGE_CONVERSION_TIME", "group__ina226__example__driver.html#ga25fe67f5c932425c7b41a448570d9f8f", null ],
+    [ "ina226_alert_deinit", "group__ina226__example__driver.html#ga1ac4a10ab7fcf2a9daa951b3104c46ca", null ],
+    [ "ina226_alert_init", "group__ina226__example__driver.html#ga17ab536d9c9a6e68cf9de39514aa6ee9", null ],
+    [ "ina226_alert_irq_handler", "group__ina226__example__driver.html#ga2b14b20a28cbaa7f40feca2ac7ad23af", null ],
+    [ "ina226_alert_read", "group__ina226__example__driver.html#ga6f028e8e2fe89594ac67d7ee8f3b9ab5", null ],
+    [ "ina226_basic_deinit", "group__ina226__example__driver.html#gabc0f4a558891c105147d4eb48f595b4e", null ],
+    [ "ina226_basic_init", "group__ina226__example__driver.html#gad8a166f7385d6b97d825a3e9426690dd", null ],
+    [ "ina226_basic_read", "group__ina226__example__driver.html#ga07ceaaa9dd5a2a6178947099af3d1970", null ],
+    [ "ina226_shot_deinit", "group__ina226__example__driver.html#gad6d4a28fa998a86aa4ad39e3d00b579f", null ],
+    [ "ina226_shot_init", "group__ina226__example__driver.html#gaf18e6b3195ac7ceaa09cc20c8685d3ff", null ],
+    [ "ina226_shot_read", "group__ina226__example__driver.html#ga67c279f6a71894bea2d7eaf4181aba1b", null ]
+];
