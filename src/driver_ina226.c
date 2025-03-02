@@ -644,28 +644,31 @@ uint8_t ina226_read_shunt_voltage(ina226_handle_t *handle, int16_t *raw, float *
         uint16_t i;
         uint16_t timeout;
         
-        timeout = INA226_READ_TIMEOUT;                                                  /* set timeout */
-        for (i = 0; i< timeout; i++)                                                    /* loop all */
+        if ((prev & (1 << 3)) == 0)                                                     /* check last mask conversion ready flag */
         {
-            res = a_ina226_iic_read(handle, INA226_REG_MASK, (uint16_t *)&prev);        /* read mask */
-            if (res != 0)                                                               /* check result */
+            timeout = INA226_READ_TIMEOUT;                                              /* set timeout */
+            for (i = 0; i< timeout; i++)                                                /* loop all */
             {
-                handle->debug_print("ina226: read mask register failed.\n");            /* read mask register failed */
+                res = a_ina226_iic_read(handle, INA226_REG_MASK, (uint16_t *)&prev);    /* read mask */
+                if (res != 0)                                                           /* check result */
+                {
+                    handle->debug_print("ina226: read mask register failed.\n");        /* read mask register failed */
+                   
+                    return 1;                                                           /* return error */
+                }
+                if ((prev & (1 << 3)) != 0)                                             /* check conversion ready flag */
+                {
+                    break;                                                              /* break */
+                }
+                handle->delay_ms(1);                                                    /* delay 1ms */
+                timeout--;                                                              /* timeout-- */
+            }
+            if (timeout == 0)                                                           /* check timeout */
+            {
+                handle->debug_print("ina226: read timeout.\n");                         /* timeout */
                
-                return 1;                                                               /* return error */
+                return 5;                                                               /* return error */
             }
-            if ((prev & (1 << 3)) != 0)                                                 /* check conversion ready flag */
-            {
-                break;                                                                  /* break */
-            }
-            handle->delay_ms(1);                                                        /* delay 1ms */
-            timeout--;                                                                  /* timeout-- */
-        }
-        if (timeout == 0)                                                               /* check timeout */
-        {
-            handle->debug_print("ina226: read timeout.\n");                             /* timeout */
-           
-            return 5;                                                                   /* return error */
         }
         handle->trigger = 0;                                                            /* set 0 */
     }
@@ -729,28 +732,31 @@ uint8_t ina226_read_bus_voltage(ina226_handle_t *handle, uint16_t *raw, float *m
         uint16_t i;
         uint16_t timeout;
         
-        timeout = INA226_READ_TIMEOUT;                                                  /* set timeout */
-        for (i = 0; i< timeout; i++)                                                    /* loop all */
+        if ((prev & (1 << 3)) == 0)                                                     /* check last mask conversion ready flag */
         {
-            res = a_ina226_iic_read(handle, INA226_REG_MASK, (uint16_t *)&prev);        /* read mask */
-            if (res != 0)                                                               /* check result */
+            timeout = INA226_READ_TIMEOUT;                                              /* set timeout */
+            for (i = 0; i< timeout; i++)                                                /* loop all */
             {
-                handle->debug_print("ina226: read mask register failed.\n");            /* read mask register failed */
+                res = a_ina226_iic_read(handle, INA226_REG_MASK, (uint16_t *)&prev);    /* read mask */
+                if (res != 0)                                                           /* check result */
+                {
+                    handle->debug_print("ina226: read mask register failed.\n");        /* read mask register failed */
+                   
+                    return 1;                                                           /* return error */
+                }
+                if ((prev & (1 << 3)) != 0)                                             /* check conversion ready flag */
+                {
+                    break;                                                              /* break */
+                }
+                handle->delay_ms(1);                                                    /* delay 1ms */
+                timeout--;                                                              /* timeout-- */
+            }
+            if (timeout == 0)                                                           /* check timeout */
+            {
+                handle->debug_print("ina226: read timeout.\n");                         /* timeout */
                
-                return 1;                                                               /* return error */
+                return 5;                                                               /* return error */
             }
-            if ((prev & (1 << 3)) != 0)                                                 /* check conversion ready flag */
-            {
-                break;                                                                  /* break */
-            }
-            handle->delay_ms(1);                                                        /* delay 1ms */
-            timeout--;                                                                  /* timeout-- */
-        }
-        if (timeout == 0)                                                               /* check timeout */
-        {
-            handle->debug_print("ina226: read timeout.\n");                             /* timeout */
-           
-            return 5;                                                                   /* return error */
         }
         handle->trigger = 0;                                                            /* set 0 */
     }
@@ -818,28 +824,31 @@ uint8_t ina226_read_current(ina226_handle_t *handle, int16_t *raw, float *mA)
         uint16_t i;
         uint16_t timeout;
         
-        timeout = INA226_READ_TIMEOUT;                                                  /* set timeout */
-        for (i = 0; i< timeout; i++)                                                    /* loop all */
+        if ((prev & (1 << 3)) == 0)                                                     /* check last mask conversion ready flag */
         {
-            res = a_ina226_iic_read(handle, INA226_REG_MASK, (uint16_t *)&prev);        /* read mask */
-            if (res != 0)                                                               /* check result */
+            timeout = INA226_READ_TIMEOUT;                                              /* set timeout */
+            for (i = 0; i< timeout; i++)                                                /* loop all */
             {
-                handle->debug_print("ina226: read mask register failed.\n");            /* read mask register failed */
+                res = a_ina226_iic_read(handle, INA226_REG_MASK, (uint16_t *)&prev);    /* read mask */
+                if (res != 0)                                                           /* check result */
+                {
+                    handle->debug_print("ina226: read mask register failed.\n");        /* read mask register failed */
+                   
+                    return 1;                                                           /* return error */
+                }
+                if ((prev & (1 << 3)) != 0)                                             /* check conversion ready flag */
+                {
+                    break;                                                              /* break */
+                }
+                handle->delay_ms(1);                                                    /* delay 1ms */
+                timeout--;                                                              /* timeout-- */
+            }
+            if (timeout == 0)                                                           /* check timeout */
+            {
+                handle->debug_print("ina226: read timeout.\n");                         /* timeout */
                
-                return 1;                                                               /* return error */
+                return 5;                                                               /* return error */
             }
-            if ((prev & (1 << 3)) != 0)                                                 /* check conversion ready flag */
-            {
-                break;                                                                  /* break */
-            }
-            handle->delay_ms(1);                                                        /* delay 1ms */
-            timeout--;                                                                  /* timeout-- */
-        }
-        if (timeout == 0)                                                               /* check timeout */
-        {
-            handle->debug_print("ina226: read timeout.\n");                             /* timeout */
-           
-            return 5;                                                                   /* return error */
         }
         handle->trigger = 0;                                                            /* set 0 */
     }
@@ -903,28 +912,31 @@ uint8_t ina226_read_power(ina226_handle_t *handle, uint16_t *raw, float *mW)
         uint16_t i;
         uint16_t timeout;
         
-        timeout = INA226_READ_TIMEOUT;                                                  /* set timeout */
-        for (i = 0; i< timeout; i++)                                                    /* loop all */
+        if ((prev & (1 << 3)) == 0)                                                     /* check last mask conversion ready flag */
         {
-            res = a_ina226_iic_read(handle, INA226_REG_MASK, (uint16_t *)&prev);        /* read mask */
-            if (res != 0)                                                               /* check result */
+            timeout = INA226_READ_TIMEOUT;                                              /* set timeout */
+            for (i = 0; i< timeout; i++)                                                /* loop all */
             {
-                handle->debug_print("ina226: read mask register failed.\n");            /* read mask register failed */
+                res = a_ina226_iic_read(handle, INA226_REG_MASK, (uint16_t *)&prev);    /* read mask */
+                if (res != 0)                                                           /* check result */
+                {
+                    handle->debug_print("ina226: read mask register failed.\n");        /* read mask register failed */
+                   
+                    return 1;                                                           /* return error */
+                }
+                if ((prev & (1 << 3)) != 0)                                             /* check conversion ready flag */
+                {
+                    break;                                                              /* break */
+                }
+                handle->delay_ms(1);                                                    /* delay 1ms */
+                timeout--;                                                              /* timeout-- */
+            }
+            if (timeout == 0)                                                           /* check timeout */
+            {
+                handle->debug_print("ina226: read timeout.\n");                         /* timeout */
                
-                return 1;                                                               /* return error */
+                return 5;                                                               /* return error */
             }
-            if ((prev & (1 << 3)) != 0)                                                 /* check conversion ready flag */
-            {
-                break;                                                                  /* break */
-            }
-            handle->delay_ms(1);                                                        /* delay 1ms */
-            timeout--;                                                                  /* timeout-- */
-        }
-        if (timeout == 0)                                                               /* check timeout */
-        {
-            handle->debug_print("ina226: read timeout.\n");                             /* timeout */
-           
-            return 5;                                                                   /* return error */
         }
         handle->trigger = 0;                                                            /* set 0 */
     }
