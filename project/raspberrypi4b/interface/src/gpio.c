@@ -58,7 +58,7 @@ extern volatile uint8_t (*g_gpio_irq)(void);    /**< gpio extern callback */
 
 /**
  * @brief  gpio interrupt pthread
- * @param  *p ponts to an args buffer
+ * @param  *p pointer to an args buffer
  * @return NULL
  * @note   none
  */
