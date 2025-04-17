@@ -10,7 +10,7 @@
 
 The INA226 is a current shunt and power monitor with an I2C™- or SMBUS-compatible interface. The device monitors both a shunt voltage drop and bus supply voltage. Programmable calibration value, conversion times, and averaging, combined with an internal multiplier, enable direct readouts of current in amperes and power in watts.The INA226 senses current on common-mode bus voltages that can vary from 0V to 36V, independent of the supply voltage. The device operates from a single 2.7V to 5.5V supply, drawing a typical of 330μA of supply current. The device is specified over the operating temperature range between –40°C and 125°C and features up to 16 programmable addresses on the I2C-compatible interface.
 
-LibDriver INA226 is the full function driver of INA226 launched by LibDriver.It provides continuous mode reading, single mode reading, current acquisition, voltage acquisition, power acquisition, alert detect and other functions.LibDriver is MISRA compliant.
+LibDriver INA226 is a full-featured driver of INA226 launched by LibDriver.It provides continuous mode reading, single mode reading, current acquisition, voltage acquisition, power acquisition, alert detect and other functions.LibDriver is MISRA compliant.
 
 ### Table of Contents
 
