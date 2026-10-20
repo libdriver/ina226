@@ -60,7 +60,7 @@ extern "C"{
  * @brief ina226 read timeout definition
  */
 #ifndef INA226_READ_TIMEOUT
-    #define INA226_READ_TIMEOUT    1000        /**< 1000ms */
+    #define INA226_READ_TIMEOUT    17000        /**< 17000ms */
 #endif
 
 /**

@@ -1470,18 +1470,18 @@ uint8_t ina226_get_alert_limit(ina226_handle_t *handle, uint16_t *reg)
  */
 uint8_t ina226_shunt_voltage_convert_to_register(ina226_handle_t *handle, float mV, uint16_t *reg)
 {
-    if (handle == NULL)                  /* check handle */
+    if (handle == NULL)                             /* check handle */
     {
-        return 2;                        /* return error */
+        return 2;                                   /* return error */
     }
-    if (handle->inited != 1)             /* check handle initialization */
+    if (handle->inited != 1)                        /* check handle initialization */
     {
-        return 3;                        /* return error */
+        return 3;                                   /* return error */
     }
     
-    *reg = (uint16_t)(mV * 400.0f);      /* convert real data to register data */
+    *reg = (uint16_t)((int16_t)(mV * 400.0f));      /* convert real data to register data */
     
-    return 0;                            /* success return 0 */
+    return 0;                                       /* success return 0 */
 }
 
 /**
@@ -1497,18 +1497,18 @@ uint8_t ina226_shunt_voltage_convert_to_register(ina226_handle_t *handle, float 
  */
 uint8_t ina226_shunt_voltage_convert_to_data(ina226_handle_t *handle, uint16_t reg, float *mV)
 {
-    if (handle == NULL)               /* check handle */
+    if (handle == NULL)                      /* check handle */
     {
-        return 2;                     /* return error */
+        return 2;                            /* return error */
     }
-    if (handle->inited != 1)          /* check handle initialization */
+    if (handle->inited != 1)                 /* check handle initialization */
     {
-        return 3;                     /* return error */
+        return 3;                            /* return error */
     }
     
-    *mV = (float)(reg) / 400.0f;      /* convert real data to register data */
+    *mV = (float)(int16_t)reg / 400.0f;      /* convert real data to register data */
     
-    return 0;                         /* success return 0 */
+    return 0;                                /* success return 0 */
 }
 
 /**
@@ -1659,37 +1659,33 @@ uint8_t ina226_irq_handler(ina226_handle_t *handle)
                 handle->receive_callback(INA226_STATUS_SHUNT_VOLTAGE_OVER_VOLTAGE);         /* run callback */
             }
         }
-        else if ((prev & (1 << 14)) != 0)                                                   /* shunt voltage under voltage */
+        if ((prev & (1 << 14)) != 0)                                                        /* shunt voltage under voltage */
         {
             if (handle->receive_callback != NULL)                                           /* check not null */
             {
                 handle->receive_callback(INA226_STATUS_SHUNT_VOLTAGE_UNDER_VOLTAGE);        /* run callback */
             }
         }
-        else if ((prev & (1 << 13)) != 0)                                                   /* bus voltage over voltage */
+        if ((prev & (1 << 13)) != 0)                                                        /* bus voltage over voltage */
         {
             if (handle->receive_callback != NULL)                                           /* check not null */
             {
                 handle->receive_callback(INA226_STATUS_BUS_VOLTAGE_OVER_VOLTAGE);           /* run callback */
             }
         }
-        else if ((prev & (1 << 12)) != 0)                                                   /* bus voltage under voltage */
+        if ((prev & (1 << 12)) != 0)                                                        /* bus voltage under voltage */
         {
             if (handle->receive_callback != NULL)                                           /* check not null */
             {
                 handle->receive_callback(INA226_STATUS_BUS_VOLTAGE_UNDER_VOLTAGE);          /* run callback */
             }
         }
-        else if ((prev & (1 << 11)) != 0)                                                   /* power over limit */
+        if ((prev & (1 << 11)) != 0)                                                        /* power over limit */
         {
             if (handle->receive_callback != NULL)                                           /* check not null */
             {
                 handle->receive_callback(INA226_STATUS_POWER_OVER_LIMIT);                   /* run callback */
             }
-        }
-        else
-        {
-                                                                                            /* do nothing */
         }
     }
     
